@@ -11,19 +11,19 @@ describe("Test GET all products at /products", () => {
 
 describe("Test GET single product at /products/:id", () => {
   test("It should respond with 200 success", async () => {
-    await request(app).get("/products/0815369011891").expect(200);
+    await request(app).get("/products/4000405002070").expect(200);
   });
 });
 
 describe("Test PUT update product at /products/:id", () => {
   test("It should respond with 200 success", async () => {
-    await request(app).put("/products/0815369011891").expect(200);
+    await request(app).put("/products/4000405002070").expect(200);
   });
 });
 
 describe("Test DELETE delete product at /products/:id", () => {
   test("It should respond with 200 success", async () => {
-    await request(app).delete("/products/0815369011891").expect(200);
+    await request(app).delete("/products/4000405002070").expect(200);
   });
 });
 

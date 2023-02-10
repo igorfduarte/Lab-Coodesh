@@ -38,14 +38,16 @@ exports.deleteProduct = asyncHandler(async (req, res) => {
 // @route   UPDATE /products/:id
 // @access  Public
 exports.updateProduct = asyncHandler(async (req, res) => {
-  let product = await Product.findOne({ code: req.params.id });
 
-  if (!product) {
-    return next(new ErrorResponse(`product with id of ${req.params.id} not found`, 404));
+
+  try {
+    const response = await axios.get(`https://world.openfoodfacts.org/api/v0/product/4000405002070.json`);
+
+    let product = await Product.findOneAndUpdate({ code: req.params.id }, response.data);
+    product.status = "draft";
+    await product.save();
+    res.json(product);
+  } catch (error) {
+    throw new Error(error);
   }
-
-  const response = await axios.get(`https://world.openfoodfacts.org/api/v0/product/${req.params.id}.json`);
-
-  product = await Product.findOneAndUpdate({ code: req.params.id }, response.data);
-  res.json(product);
 });

@@ -6,6 +6,8 @@
 Backend API for Open Food Facts application.
 The project aims to support the team of nutritionists from the company Fitness Foods LC so that they can quickly review the nutritional information of foods that users publish through the mobile application.
 
+> presentation video link: https://www.loom.com/embed/9b2c7e4bf16647df98d9c000296d0fba
+
 ## Installation and Usage
 
 Rename "config.env.env" to .env and update the value/settings to your own.

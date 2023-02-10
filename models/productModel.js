@@ -108,9 +108,7 @@ ProductSchema.pre('insertMany',function(next,docs){
   }
   next()
 })
-ProductSchema.pre('findOneAndUpdate',function(next){
-  this.status = "published"
-  next()
-})
+
+
 
 module.exports = mongoose.model("Product", ProductSchema);
